@@ -1,0 +1,35 @@
+{
+  "name": "get-users-threaded-in-tweet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MysticDoll/getUsersThreadedIntweet.git"
+  },
+  "author": "Mitsuru Takigahira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MysticDoll/getUsersThreadedIntweet/issues"
+  },
+  "homepage": "https://github.com/MysticDoll/getUsersThreadedIntweet#readme",
+  "dependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-es2016": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "babel-preset-stage-2": "^6.22.0",
+    "body-parser": "^1.18.1",
+    "express": "^4.15.4",
+    "jsdom": "^11.2.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "request": "^2.82.0",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^2.8.2"
+  }
+}
