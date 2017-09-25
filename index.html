@@ -1,0 +1,54 @@
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>ツイートにぶら下がってるユーザーを取得するやつ</title>
+    <link href="./style.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="col-md-12">
+        <div class="page-header">
+          <h1>ツイートにぶら下がってるユーザーを取得するやつ</h1>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <a
+          href="https://twitter.com/share"
+          class="twitter-share-button"
+          data-url="http://mysticdoll.com/twreadedUser"
+          data-via="MysticDoll"
+          data-size="large">Tweet</a>
+      </div>
+      <div class="col-md-12">
+        <h2>How to use</h2>
+        <h3>Fetch</h3>
+        <ol>
+          <li>ツイートのURLを入力</li>
+          <li>ボタンを押す</li>
+        </ol>
+        <h3>Export</h3>
+        <ol>
+          <li>IDをブロックリストにエクスポートしたいユーザーを絞る</li>
+          <li>ボタンを押す</li>
+        </ol>
+      </div>
+      <div class="col-md-12">
+        <div class="form">
+          <div class="form-group">
+            <label>URL</label> <input class="form-control" id="tweet-url">
+          </div>
+          <button class="btn btn-success" id="fetcher">Fetch</button>
+        </div>
+      </div>
+      <div id="app-container">
+      </div>
+    </div>
+    <script src="./js/main.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </body>
+</html>
+
+
