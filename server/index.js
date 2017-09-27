@@ -9,7 +9,10 @@ app.post("/api/tweetThread", jsonParser, function(req, res) {
     .then(manager => {
       res.send({users: manager.users});
     })
-    .catch(err => console.error(err));
+    .catch(err => {
+      console.error(err);
+      res.status(500).send(JSON.stringify(err))
+    });
 });
 
 app.listen(3000);
