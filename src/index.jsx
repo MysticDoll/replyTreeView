@@ -7,6 +7,7 @@ const button = document.getElementById("fetcher");
 const container = document.getElementById("app-container");
 
 button.addEventListener("click", () => {
+  button.setAttribute("disabled", "");
   fetch(
     api,
     {
@@ -21,6 +22,7 @@ button.addEventListener("click", () => {
         <App users={r.users}></App>,
         container
       );
+      button.removeAttribute("disabled");
     });
 });
 

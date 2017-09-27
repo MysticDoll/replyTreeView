@@ -30,7 +30,7 @@ export default class App extends React.Component {
   }
 
   get blockList() {
-  return this.state.users.filter(user => user.block).map(user => user.id).join("\n");
+    return this.state.users.filter(user => user.block).map(user => user.id_str).join("\n");
   }
 
   get exportURL() {
