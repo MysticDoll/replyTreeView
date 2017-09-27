@@ -1,7 +1,7 @@
 import React from "react";
 import {render, unmountComponentAtNode} from "react-dom";
 import App from "./app.jsx";
-const api = "http://mysticdoll.com/tools/tweet/tweetThread";
+const api = "https://mysticdoll.com/tools/tweet/tweetThread";
 const url = document.getElementById("tweet-url");
 const button = document.getElementById("fetcher");
 const container = document.getElementById("app-container");
