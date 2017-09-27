@@ -16,9 +16,11 @@ export default class App extends React.Component {
           <User
             block={user.block}
             name={user.name}
-            screenName={user.screenName}
-            userId={user.userId}
-            key={user.userId}
+            screen_name={user.screen_name}
+            description={user.description}
+            profile_image_url_https={user.profile_image_url_https}
+            id={user.id}
+            key={user.id}
             manager={this}
           />
         ))
@@ -28,7 +30,7 @@ export default class App extends React.Component {
   }
 
   get blockList() {
-  return this.state.users.filter(user => user.block).map(user => user.userId).join("\n");
+  return this.state.users.filter(user => user.block).map(user => user.id).join("\n");
   }
 
   get exportURL() {
@@ -45,8 +47,10 @@ export default class App extends React.Component {
           <thead>
             <tr>
               <th>ブロックするか</th>
+              <th>アイコン</th>
               <th>screen_name</th>
               <th>ユーザー名</th>
+              <th>プロフィール</th>
             </tr>
           </thead>
           {this.userView}

@@ -10,7 +10,7 @@ export default class User extends React.Component {
   }
   
   get userPage() {
-    return `https://twitter.com/${this.props.screenName}`;
+    return `https://twitter.com/${this.props.screen_name}`;
   }
 
   get onChange() {
@@ -18,7 +18,7 @@ export default class User extends React.Component {
       let isBlock = e.target.checked;
       let state = {
         users:this.manager.state.users.map(user => 
-          user.userId === this.props.userId ? Object.assign(user, {block: isBlock}) : user
+          user.id === this.props.id ? Object.assign(user, {block: isBlock}) : user
         )
       };
       this.manager.setState(state);
@@ -32,11 +32,17 @@ export default class User extends React.Component {
         <td className={"block-container"}>
           <input type={"checkbox"} className={"block-checkbox form-control"} checked={this.state.block} onChange={this.onChange}></input>
         </td>
+        <td className={"user-icon-container"}>
+          <a href={this.userPage}><img src={this.props.profile_image_url_https}></img></a>
+        </td>
         <td className={"screen-name-container"}>
-          <a href={this.userPage}><span>{this.props.screenName}</span></a>
+          <a href={this.userPage}><span>{this.props.screen_name}</span></a>
         </td>
         <td className={"user-name-container"}>
           <span>{this.props.name}</span>
+        </td>
+        <td className={"user-profile-container"}>
+          <span>{this.props.description}</span>
         </td>
       </tr>
     );
