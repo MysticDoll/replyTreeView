@@ -19,8 +19,8 @@ export default class App extends React.Component {
             screen_name={user.screen_name}
             description={user.description}
             profile_image_url_https={user.profile_image_url_https}
-            id={user.id}
-            key={user.id}
+            id={user.id_str}
+            key={user.id_str}
             manager={this}
           />
         ))

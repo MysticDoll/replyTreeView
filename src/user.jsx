@@ -18,7 +18,7 @@ export default class User extends React.Component {
       let isBlock = e.target.checked;
       let state = {
         users:this.manager.state.users.map(user => 
-          user.id === this.props.id ? Object.assign(user, {block: isBlock}) : user
+          user.id_str === this.props.id ? Object.assign(user, {block: isBlock}) : user
         )
       };
       this.manager.setState(state);
