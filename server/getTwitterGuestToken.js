@@ -26,7 +26,7 @@ module.exports = function(statusId) {
           Page.enable(),
           Network.setRequestInterceptionEnabled({
             enabled: true,
-            patterns:["https://api.twitter.com/2/timeline/conversation/"]
+            patterns:["*"]
           })
         ]).then(() => {
           Page.navigate({url: url});
