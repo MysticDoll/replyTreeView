@@ -23,7 +23,6 @@ module.exports = class ThreadedUsers {
         "x-twitter-active-user": "yes",
         "x-twitter-client-language": "ja"
       });
-      console.log(headers);
       return (new Promise((resolve, reject) => 
         request.get({
           url: this.apiURL,
@@ -35,8 +34,14 @@ module.exports = class ThreadedUsers {
     })
       .then(res => JSON.parse(res.body))
       .then(res => {
-        let users = res.globalObjects.users
-        this.users = Object.keys(users).map(key => users[key]);
+        let users = res.globalObjects.users;
+        let tweets = res.globalObjects.tweets;
+        this.users = Object.entries(users).map(
+          ([uid, user]) => Object.assign({
+          replies: Object.entries(tweets)
+            .filter(([tid, tweet]) => tweet.user_id_str === user.id_str)
+            .map(([tid, tweet]) => tweet)
+          }, user));
         return this;
       });
   }
