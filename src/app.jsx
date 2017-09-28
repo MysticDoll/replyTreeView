@@ -63,26 +63,29 @@ export default class App extends React.Component {
     URL.revokeObjectURL(this.objectURL);
     return (
       <div>
+        <div className={"row"}>
+          <div style={{margin: "auto 8px", display: "inline-block"}}>
+            <a className="btn btn-info" href={this.exportURL} download={"blocklist.csv"} target={"_blank"}>Export</a>
+          </div>
+          <div style={{margin: "auto 8px", display: "inline-block"}}>
+            <button
+              className={"btn btn-primary"}
+              onClick={this.blockNone}
+            >
+              <span>全てのチェックを外す</span>
+            </button>
+          </div>
+          <div style={{margin: "auto 8px", display: "inline-block"}}>
+            <button
+              className={"btn btn-primary"}
+              onClick={this.blockAll}
+            >
+              <span>全てのチェックをつける</span>
+            </button>
+          </div>
+        </div>
         <table className={"table"}>
           <thead>
-            <tr>
-              <td>
-                <button
-                  className={"btn btn-primary"}
-                  onClick={this.blockNone}
-                >
-                  <span>全てのチェックを外す</span>
-                </button>
-              </td>
-              <td>
-                <button
-                  className={"btn btn-primary"}
-                  onClick={this.blockAll}
-                >
-                  <span>全てのチェックをつける</span>
-                </button>
-              </td>
-            </tr>
             <tr>
               <th className={"col-md-1"}>ブロックする</th>
               <th className={"col-md-4"}>ツイート</th>
@@ -94,9 +97,6 @@ export default class App extends React.Component {
           </thead>
           {this.userView}
         </table>
-        <div>
-        <a className="btn btn-info" href={this.exportURL} download={"blocklist.csv"} target={"_blank"}>Export</a>
-        </div>
       </div>
     );
   }
