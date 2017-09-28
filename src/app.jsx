@@ -48,11 +48,11 @@ export default class App extends React.Component {
           <thead>
             <tr>
               <th className={"col-md-1"}>ブロックする</th>
+              <th>ツイート</th>
               <th className={"col-md-1"}>アイコン</th>
               <th>screen_name</th>
               <th>ユーザー名</th>
               <th>プロフィール</th>
-              <th>ツイート</th>
             </tr>
           </thead>
           {this.userView}

@@ -33,6 +33,7 @@ export default class User extends React.Component {
         <td className={"block-container"}>
           <input type={"checkbox"} className={"block-checkbox form-control"} checked={this.state.block} onChange={this.onChange}></input>
         </td>
+        <Tweet screen_name={this.props.screen_name} replies={this.props.replies} />
         <td className={"user-icon-container"}>
           <a href={this.userPage}><img src={this.props.profile_image_url_https}></img></a>
         </td>
@@ -45,7 +46,6 @@ export default class User extends React.Component {
         <td className={"user-profile-container"}>
           <p>{this.props.description}</p>
         </td>
-        <Tweet screen_name={this.props.screen_name} replies={this.props.replies} />
       </tr>
     );
   }
