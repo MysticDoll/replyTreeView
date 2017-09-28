@@ -21,6 +21,7 @@ export default class App extends React.Component {
             profile_image_url_https={user.profile_image_url_https}
             id={user.id_str}
             key={user.id_str}
+            replies={user.replies}
             manager={this}
           />
         ))
@@ -46,11 +47,12 @@ export default class App extends React.Component {
         <table className={"table"}>
           <thead>
             <tr>
-              <th>ブロックするか</th>
-              <th>アイコン</th>
+              <th className={"col-md-1"}>ブロックする</th>
+              <th className={"col-md-1"}>アイコン</th>
               <th>screen_name</th>
               <th>ユーザー名</th>
               <th>プロフィール</th>
+              <th>ツイート</th>
             </tr>
           </thead>
           {this.userView}
