@@ -1,4 +1,5 @@
 import React from "react";
+import Tweet from "./tweet.jsx";
 
 export default class User extends React.Component {
   constructor(props) {
@@ -42,8 +43,9 @@ export default class User extends React.Component {
           <span>{this.props.name}</span>
         </td>
         <td className={"user-profile-container"}>
-          <span>{this.props.description}</span>
+          <p>{this.props.description}</p>
         </td>
+        <Tweet screen_name={this.props.screen_name} replies={this.props.replies} />
       </tr>
     );
   }
