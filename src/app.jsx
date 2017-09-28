@@ -7,6 +7,7 @@ export default class App extends React.Component {
     this.state = {
       users: this.props.users.map(u => Object.assign(u, {block: true}))
     };
+    this.userModels = [];
   }
 
   get userView() {
@@ -40,6 +41,24 @@ export default class App extends React.Component {
     return objectURL;
   }
 
+  get blockAll() {
+    return () => {
+      this.setState({
+        users: this.state.users.map(user => Object.assign(user, {block: true}))
+      });
+      this.userModels.forEach(u => u.setState({block: true}));
+    };
+  }
+
+  get blockNone() {
+    return () => {
+      this.setState({
+        users: this.state.users.map(user => Object.assign(user, {block: false}))
+      });
+      this.userModels.forEach(u => u.setState({block: false}));
+    };
+  }
+
   render() {
     URL.revokeObjectURL(this.objectURL);
     return (
@@ -47,8 +66,26 @@ export default class App extends React.Component {
         <table className={"table"}>
           <thead>
             <tr>
+              <td>
+                <button
+                  className={"btn btn-primary"}
+                  onClick={this.blockNone}
+                >
+                  <span>全てのチェックを外す</span>
+                </button>
+              </td>
+              <td>
+                <button
+                  className={"btn btn-primary"}
+                  onClick={this.blockAll}
+                >
+                  <span>全てのチェックをつける</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
               <th className={"col-md-1"}>ブロックする</th>
-              <th>ツイート</th>
+              <th className={"col-md-4"}>ツイート</th>
               <th className={"col-md-1"}>アイコン</th>
               <th>screen_name</th>
               <th>ユーザー名</th>

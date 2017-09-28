@@ -8,6 +8,7 @@ export default class User extends React.Component {
       block: this.props.block
     };
     this.manager = this.props.manager;
+    this.manager.userModels.push(this);
   }
   
   get userPage() {
