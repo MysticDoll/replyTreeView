@@ -8,6 +8,27 @@ const shareButton = document.getElementById("share-button");
 const container = document.getElementById("app-container");
 const initExp = /\#(\d+)/.exec(location.hash);
 
+const sortUsers = (users) => 
+  users.sort((a, b) => 
+    a.replies
+      .map(({created_at}) => (new Date(created_at)).getTime())
+      .sort((j, k) => j > k ? 1 : -1)[0] >
+    b.replies
+      .map(({created_at}) => (new Date(created_at)).getTime())
+    .sort((j, k) => j > k ? 1 : -1)[0] ? 1 : -1
+  ).map(
+    user => {
+      let _user = Object.assign({}, user);
+      _user.replies = 
+        user.replies
+          .sort(
+            (a, b) => 
+            (new Date(a.created_at)).getTime() > (new Date(b.created_at)).getTime() ? 1 : -1
+          );
+      return _user;
+    }
+  );
+
 const renderView = (url, target) => {
   return fetch(
     api,
@@ -20,7 +41,7 @@ const renderView = (url, target) => {
     .then(r => {
       unmountComponentAtNode(target);
       render(
-        <App users={r.users}></App>,
+        <App users={sortUsers(r.users)}></App>,
         target
       );
       return url;
