@@ -8,13 +8,14 @@ const shareButton = document.getElementById("share-button");
 const container = document.getElementById("app-container");
 const initExp = /\#(\d+)/.exec(location.hash);
 
-const sortUsers = (users) => 
-  users.sort((a, b) => 
+const sortUsers = (users) => {
+  let srcId = location.hash.substring(1);
+  return users.sort((a, b) => 
     a.replies
-      .map(({created_at}) => (new Date(created_at)).getTime())
+      .map(({created_at, id_str}) => id_str === srcId ? -1 : (new Date(created_at)).getTime())
       .sort((j, k) => j > k ? 1 : -1)[0] >
     b.replies
-      .map(({created_at}) => (new Date(created_at)).getTime())
+      .map(({created_at, id_str}) => id_str === srcId ? -1 : (new Date(created_at)).getTime())
     .sort((j, k) => j > k ? 1 : -1)[0] ? 1 : -1
   ).map(
     user => {
@@ -27,7 +28,7 @@ const sortUsers = (users) =>
           );
       return _user;
     }
-  );
+  )};
 
 const renderView = (url, target) => {
   return fetch(
